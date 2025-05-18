@@ -1,0 +1,13 @@
+graph TD;
+    A[External Users] -->|Accesses| B[Web Application];
+    B -->|Fetch| C[Microservices];
+    C -->|Query| D[Database];
+    A -->|Submits| E[Transaction Service];
+    E -->|Stores| D;
+    F[Internal Users] -->|Utilizes| B;
+    F -->|Executes| G[Reporting Service];
+    G -->|Generates| D;
+    C -->|Logs Events| H[Monitoring System];
+    H -->|Alerts| I[Ops Team];
+    J[API Gateway] -->|Routes| C;
+    J -->|Authenticates| K[Identity Service];

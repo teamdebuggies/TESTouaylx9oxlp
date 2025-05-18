@@ -1,0 +1,12 @@
+graph TD;
+    A[VPC] -->|Creates| B[Public Subnet];
+    A -->|Creates| C[Private Subnet];
+    B -->|Hosts| D[Load Balancer];
+    D -->|Routes| E[Web Application];
+    C -->|Hosts| F[Microservices];
+    C -->|Stores| G[Database (RDS)];
+    H[Security Group] -->|Allows| D;
+    H -->|Allows| E;
+    I[IAM Role] -->|Grants| J[Lambda Functions];
+    K[CloudWatch] -->|Monitors| F;
+    L[GitHub Actions] -->|Triggers| M[CI/CD Pipeline];
